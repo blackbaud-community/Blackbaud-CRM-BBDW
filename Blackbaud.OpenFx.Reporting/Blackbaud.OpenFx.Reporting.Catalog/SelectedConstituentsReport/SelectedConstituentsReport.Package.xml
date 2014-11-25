@@ -1,0 +1,65 @@
+<PackageSpec 
+    xmlns="bb_appfx_package"
+    xmlns:c="bb_appfx_commontypes"
+    ID="7783fe85-7a5c-4d8a-9741-a2be0a20a2f5"
+    Name="Selected Constituents Report Package"
+    Description="A package defining specs related to selected constituents report records"
+    Author="Blackbaud Product Development"
+    >
+
+	<!-- Note:  the order of the items listed here is important.  For example, you won't be able to load a data form that references 
+	a table that hasn't been loaded, etc.  In general, the following order is recommended:
+	
+		(functions and procedures first)
+		SQLFunctionSpec
+		SQLStoredProcedureSpec
+		TranslationFunctionSpec
+
+		(tables next)
+		CodeTableSpec
+		TableSpec
+		SQLViewSpec
+
+		(features next)
+		SimpleDataListSpec		
+		SearchListSpec
+		RecordOperationSpec
+		DataListSpec
+		
+		(forms next)
+		AddDataFormTemplateSpec
+		EditDataFormTemplateSpec
+		ViewDataFormTemplateSpec		
+
+		(more feature types)
+		BatchTypeSpec
+		BusinessProcessSpec
+		CalendarSpec
+		FlashDashSpec
+		GlobalChangeSpec
+		IDMapperSpec
+		KpiSpec
+		MapEntitySpec
+		MergeConfiguration
+		MergeTaskSpec
+		QueryViewSpec
+		ReportSpec
+		RelationshipMapSpec
+		SmartFieldSpec
+		SmartQuerySpec
+		WorkflowInboxSpec
+		WorkflowSpec
+		
+		(functional areas, pages, and tasks last)
+		PageDefinitionSpec
+		FunctionalAreaSpec
+		TaskSpec	
+	-->
+	
+	<c:DependencyList>
+        <c:Dependency CatalogAssembly="Blackbaud.OpenFx.Reporting.Catalog.dll" CatalogItem="Blackbaud.OpenFx.Reporting.Catalog.SelectedConstituentsReport.Report.xml" />
+        <c:Dependency CatalogAssembly="Blackbaud.OpenFx.Reporting.Catalog.dll" CatalogItem="Blackbaud.OpenFx.Reporting.Catalog.SelectedConstituentsReport.Page.xml" />
+        <c:Dependency CatalogAssembly="Blackbaud.OpenFx.Reporting.Catalog.dll" CatalogItem="Blackbaud.OpenFx.Reporting.Catalog.SelectedConstituentsReport.Task.xml" />
+    </c:DependencyList>
+
+</PackageSpec>

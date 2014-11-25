@@ -1,0 +1,10 @@
+﻿<UIModelWizardMetadata>
+  <SpecFileName>SelectedConstituentsReport.Report.xml</SpecFileName>
+  <Namespace></Namespace>
+  <ClassName>SelectedConstituentsReportUIModel</ClassName>
+  <HtmlInfo GenerateHtml="true">
+    <HtmlFile>SelectedConstituentsReport.html</HtmlFile>
+    <HtmlFolder>htmlforms\custom\</HtmlFolder>
+  </HtmlInfo>
+  <GenerateFromDatabase>true</GenerateFromDatabase>
+</UIModelWizardMetadata>

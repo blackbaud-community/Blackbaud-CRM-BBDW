@@ -1,0 +1,23 @@
+﻿<PageDefinitionSpec 
+    xmlns="bb_appfx_pagedefinition" 
+    xmlns:c="bb_appfx_commontypes"
+    ID="651c30e7-caa9-422d-9592-88343b253ebf"
+    Name="Selected Constituents Report Page"
+    Description="A page for displaying information about selected constituents report records"
+    Author="Blackbaud Product Development"
+    >
+
+	<PageHeader Caption="Selected Constituents Report" ImageKey="REPLACE_WITH_IMAGEKEY" />
+
+	<Tabs>
+		<Tab ID="df2c5e2a-44ed-45d1-ba4b-cf70dd7595ea" Caption="Tab caption">
+
+			<Sections>
+				<Section ID="2141d08b-f272-4368-914f-0d2a3a8b474f" Caption="Section caption">
+          <Report ID="1cdb7726-4256-4573-bb95-62793fdea82f" AutoLoad="false"></Report>
+				</Section>
+			</Sections>
+		</Tab>
+	</Tabs>
+	
+</PageDefinitionSpec>
