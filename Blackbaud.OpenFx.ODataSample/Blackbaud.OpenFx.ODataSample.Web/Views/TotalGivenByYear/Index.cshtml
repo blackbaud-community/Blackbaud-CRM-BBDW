@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "5 Years of Giving";
+}
+
+<h2>5 Years of Giving</h2>
+
+
+@*Loop through each smart query instance and draw a chart for each one*@
+@foreach (var query in (List<Blackbaud.OpenFx.ODataSample.Web.Models.Query>)ViewData["Queries"])
+{var routes = new System.Web.Routing.RouteValueDictionary();
+    routes.Add("queryID",query.ID);
+    routes.Add("caption", query.Caption);
+<div><img src="@Url.Action("DrawChart",routes)" alt="Drawing chart with HTML Helper" style="float:left" /></div>}

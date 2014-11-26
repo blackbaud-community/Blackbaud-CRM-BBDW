@@ -1,0 +1,70 @@
+﻿<SmartQuerySpec 
+	xmlns="bb_appfx_smartquery"
+	xmlns:c="bb_appfx_commontypes"
+	ID="a1089e40-5938-4dbf-a8ff-91748a89ca23"
+	Name="Total Revenue Last Five Years Smart Query (Custom)"
+	Description="Returns total donations per year for a given designation"
+	Author="Blackbaud Product Development"
+	RecordType="Total Revenue By Year"
+	c:SecurityUIFolder="Total Revenue By Year"
+  MartKey="BBDW"
+	>
+
+	<TVFImplementation FunctionName="USR_UFN_SMARTQUERY_TOTALREVENUEBYYEAR" FunctionSchema="BBDW">
+		<CreateFunctionSQL>
+			<![CDATA[
+create function BBDW.USR_UFN_SMARTQUERY_TOTALREVENUEBYYEAR
+(
+  @DESIGNATIONID uniqueidentifier,
+	@MAXROWS int = 500	
+)
+  returns table 
+
+as
+
+    return
+
+      select 
+        d.[CALENDARYEAR], 
+        isnull(sum([REVENUE].[FINANCIALTRANSACTIONLINEITEMAMOUNT]),0) as [TOTALAMOUNT]
+      from BBDW.[DIM_DATE] d
+      left join (
+        select 
+          ftli.[FINANCIALTRANSACTIONLINEITEMAMOUNT],
+          ftli.[FINANCIALTRANSACTIONDATEDIMID]
+        from BBDW.[FACT_FINANCIALTRANSACTIONLINEITEM] ftli 
+        inner join BBDW.[DIM_DESIGNATION] dd on dd.[DESIGNATIONDIMID] = ftli.[DESIGNATIONDIMID]
+        left join BBDW.[DIM_REVENUECODE] rc on rc.[REVENUECODEDIMID] = ft.[REVENUECODEDIMID] and ft.[REVENUECODEDIMID] <> 0
+        left join BBDW.[DIM_REVENUEFLAG] rf on rf.[REVENUEFLAGDIMID] = ft.[REVENUEFLAGDIMID] and ft.[REVENUEFLAGDIMID] <> 0
+        where dd.[DESIGNATIONSYSTEMID] = @DESIGNATIONID
+      ) as [REVENUE] on REVENUE.[FINANCIALTRANSACTIONDATEDIMID] = d.[DATEDIMID]
+      where d.[CALENDARYEARSSINCE] between 0 and 4 
+      and rc.[REVENUETRANSACTIONTYPECODE] in (0,1,2,3,4,5,6,7,8,9,15)
+and c.[ISORGANIZATIONCURRENCY] = 1
+and rf.[ISDELETEDFINANCIALTRANSACTION] = 0
+      and d.[DATEDIMID] > 0
+      group by d.[CALENDARYEAR]
+
+			]]>
+		</CreateFunctionSQL>
+	</TVFImplementation>
+
+
+	<SmartQueryFormDefinition>
+		<FormMetaData xmlns="bb_appfx_commontypes">
+			<FormFields>
+        <FormField FieldID="DESIGNATIONID" Caption="Designation" DataType="Guid">
+          <SearchList SearchListID="3187706b-b1ee-410f-b599-27aee1b26237"/>
+        </FormField>
+			</FormFields>
+		</FormMetaData>
+	</SmartQueryFormDefinition>
+
+	<Output>
+		<OutputFields>
+			<OutputField Name="CALENDARYEAR" Caption="Calendar Year" DataType="SmallInt"/>
+			<OutputField Name="TOTALAMOUNT" Caption="Total Amount" DataType="Money"/>
+		</OutputFields>
+	</Output>
+
+</SmartQuerySpec>
