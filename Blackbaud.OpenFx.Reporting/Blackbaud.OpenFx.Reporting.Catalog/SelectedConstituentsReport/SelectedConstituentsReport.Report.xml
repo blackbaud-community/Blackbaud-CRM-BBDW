@@ -1,0 +1,67 @@
+﻿<ReportSpec 
+    xmlns="bb_appfx_report"
+    xmlns:c="bb_appfx_commontypes"
+    ID="1cdb7726-4256-4573-bb95-62793fdea82f"
+    Name="Selected Constituents Report"
+    Description="A report showing information about selected constituents report records"
+    Author="Blackbaud Product Development"
+    MartKey="BBDW"
+    >
+
+	<RDLFileName>SelectedConstituentsReport.rdl</RDLFileName>
+	<Folder>Custom Reports/Fundraising</Folder>
+	
+	<DataRetrieval>
+		<CreateSQL ObjectName="BBDW.USR_USP_REPORT_SELECTEDCONSTITUENTSREPORT" ObjectType="SQLStoredProc">
+			<![CDATA[
+create procedure BBDW.USR_USP_REPORT_SELECTEDCONSTITUENTSREPORT
+(
+@SELECTIONID uniqueidentifier null
+)
+as
+
+
+declare @IDSETTABLE nvarchar(128);
+
+set @IDSETTABLE = (select [DBTABLENAME] from BBDW.[DIM_IDSETREGISTER] where [IDSETREGISTERSYSTEMID] = @SELECTIONID);
+
+declare @SQL nvarchar(max);
+
+set @SQL = 'select c.[FULLNAME], c.[PRIMARYADDRESS],  c.[PRIMARYADDRESSCITY], c.[PRIMARYADDRESSSTATEABBREVIATION], c.[PRIMARYADDRESSPOSTCODE] ';
+set @SQL = @SQL + 'from BBDW.[DIM_CONSTITUENT] c ';
+set @SQL = @SQL + 'inner join dbo.[' + @IDSETTABLE + '] idset on c.[CONSTITUENTSYSTEMID] = idset.[ID]';
+
+--May need this for debugging dynamic SQL
+--select @SQL
+
+exec sp_executesql @SQL;
+			]]>
+		</CreateSQL>
+	</DataRetrieval>
+
+  <c:FormMetaData>
+    <c:FormFields>
+      <c:FormField Caption="Selection" FieldID="SELECTIONID" DataType="Guid">
+        <c:SearchList SearchListID="1f0e603c-1c55-4e1e-8218-bdb877b2cbe8">
+          <c:FormFieldOverrides>
+            <c:FormFieldOverride FieldID="IDSETFORMAT" DefaultValueText="2" ReadOnly="true" />
+            <c:FormFieldOverride FieldID="RECORDTYPE" DefaultValueText="Constituent" ReadOnly="true" />
+          </c:FormFieldOverrides>
+        </c:SearchList>
+      </c:FormField>
+    </c:FormFields>
+
+    <c:WebUIComponent>
+        <c:UIModel AssemblyName="Blackbaud.OpenFx.Reporting.UIModel.dll" ClassName="Blackbaud.OpenFx.Reporting.UIModel.SelectedConstituentsReportUIModel" />
+        <c:WebUI>
+            <c:ExternalResource Url="browser/htmlforms/custom/blackbaud.openfx.reporting/SelectedConstituentsReport.html" />
+        </c:WebUI>
+    </c:WebUIComponent>
+
+  </c:FormMetaData>
+
+  <DataSource>
+    <DataSourceRelativePath>Blackbaud OLAP Reports/Blackbaud OLAP SQL data source</DataSourceRelativePath>
+  </DataSource>
+
+</ReportSpec>

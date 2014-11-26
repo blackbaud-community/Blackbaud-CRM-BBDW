@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--This document contains the list of smart query instances to be displayed on the web page.
+They must be created using the Total Revenue Last Five Years Smart Query (Custom) smart query.
+-->
+<QUERIES>
+  <QUERY>
+    <ID>fe8b4cb7-63ed-4497-adca-54d761476e42</ID>
+    <CAPTION>Blackbaud University Fund</CAPTION>
+    <TYPE>Smart</TYPE>
+  </QUERY>
+  <QUERY>
+    <ID>2b72b55b-afa4-49b4-9a01-9ff5d4fbd389</ID>
+    <CAPTION>Blackbaud Global Fund</CAPTION>
+    <TYPE>Smart</TYPE>
+  </QUERY>
+  <QUERY>
+    <ID>ee62291e-1873-4d1e-af24-b06d1aefa96d</ID>
+    <CAPTION>Blackbaud Freedom Fund</CAPTION>
+    <TYPE>Smart</TYPE>
+  </QUERY>
+  <QUERY>
+    <ID>5c55e0e2-6ab0-4790-96c6-da13972b1591</ID>
+    <CAPTION>Blackbaud Fun Fund</CAPTION>
+    <TYPE>Smart</TYPE>
+  </QUERY>
+</QUERIES>

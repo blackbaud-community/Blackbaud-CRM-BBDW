@@ -1,0 +1,16 @@
+﻿<TaskSpec
+	xmlns="bb_appfx_task"
+	xmlns:c="bb_appfx_commontypes" 
+	ID="e5d74a9c-370f-4f95-a92d-bf9cdc112817"
+	Name="Selected constituents report"
+	Description="Displays a report of constituents using a selection"
+	Author="Blackbaud Product Development"
+	FunctionalAreaID="60d6fd25-1110-430e-a739-4c4062325758"
+	Sequence="120"
+	ImageKey="RES:reportspec"
+  TaskGroup="Developer Conference Demo"
+	>
+
+	<c:ShowPage PageID="651c30e7-caa9-422d-9592-88343b253ebf" />
+
+</TaskSpec>

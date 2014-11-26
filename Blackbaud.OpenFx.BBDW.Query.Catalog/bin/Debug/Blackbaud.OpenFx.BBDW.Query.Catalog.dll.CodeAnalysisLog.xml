@@ -1,6 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 10.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
 <FxCopReport Version="10.0">
+ <Targets>
+  <Target Name="C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.OpenFx.BBDW.Query.Catalog.dll">
+   <Modules>
+    <Module Name="blackbaud.openfx.bbdw.query.catalog.dll">
+     <Namespaces>
+      <Namespace Name="Blackbaud.OpenFx.BBDW.Query.Catalog">
+       <Types>
+        <Type Name="ConstituentConstituencySimpleDataList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetListResults()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="ExplicitlyStateSQLTimeouts" Category="Blackbaud.Standards" CheckId="BB071" Status="Active" Created="2014-11-24 21:39:23Z" FixCategory="Breaking">
+             <Issue Name="ExplicitlyStateSQLTimeoutValueInSPWrapCalls" Certainty="95" Level="Warning" Path="C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\Constituent" File="Constituent.Constituency.SimpleList.vb" Line="7">The SPWrap call 'ExecuteRow' appears to never explicitly be provided an argument for the optional 'timeout' parameter. Please provide a timeout argument.</Issue>
+             <Issue Name="ExplicitlyStateSQLTimeoutValueWhenUsingSqlCommands" Certainty="95" Level="Warning" Path="C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\Constituent" File="Constituent.Constituency.SimpleList.vb" Line="7">A SqlCommand object appears to never be provided a timeout argument. Please specify a timeout by setting the "CommandTimeout" property.</Issue>
+             <Issue Name="ExplicitlyStateSQLTimeoutValueWhenUsingSqlCommands" Certainty="95" Level="Warning" Path="C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\Constituent" File="Constituent.Constituency.SimpleList.vb" Line="7">A SqlCommand object appears to never be provided a timeout argument. Please specify a timeout by setting the "CommandTimeout" property.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="ExplicitlyStateSQLTimeouts" Category="Blackbaud.Standards" CheckId="BB071">
+   <Name>Always explicitly state SQL timeout values.</Name>
+   <Description>A SQL command timeout should always be explicitly provided by the caller.</Description>
+   <Resolution Name="ExplicitlyStateSQLTimeoutValueInSPWrapCalls">The SPWrap call '{0}' appears to never explicitly be provided an argument for the optional '{1}' parameter. Please provide a timeout argument.</Resolution>
+   <Resolution Name="ExplicitlyStateSQLTimeoutValueWhenUsingSqlCommands">A SqlCommand object appears to never be provided a timeout argument. Please specify a timeout by setting the "CommandTimeout" property.</Resolution>
+   <Owner />
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="blackbaud.appfx.codecheck2010.dll" Version="1.0.0.1" />
+  </Rule>
+ </Rules>
  <Localized>
   <String Key="Category">Category</String>
   <String Key="Certainty">Certainty</String>
@@ -25,4 +64,66 @@
   <String Key="Warnings">warning(s)</String>
   <String Key="ReportTitle">Code Analysis Report</String>
  </Localized>
+ <Exceptions>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx, Version=1.0.443.759, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.PaymentProcessing.ServiceProxy, Version=1.0.882.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.UsageProvider.UsageEvents, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.Reports.ServiceProxy, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.ShellExpressionModel, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.EmailServices.ServiceProxy, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.WebDiagnostics, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.CustomBasicAuthentication, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'AntiXssLibrary, Version=3.1.3524.16873, Culture=neutral, PublicKeyToken=d127efab8a9c114f' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.HtmlProcessor, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.Products, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.SpecHelpers, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.ProductFlags.ServiceProxy, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.Fuzzy, Version=1.0.0.0, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+  <Exception Keyword="CA0060" Kind="Engine" TreatAsWarning="True">
+   <Type>Microsoft.FxCop.Sdk.FxCopException</Type>
+   <ExceptionMessage>The indirectly-referenced assembly 'Blackbaud.AppFx.Platform.Automation, Version=1.9.0.76, Culture=neutral' could not be found. This assembly is not required for analysis, however, analysis results could be incomplete. This assembly was referenced by: C:\Users\RonFr\Documents\GitHub\Forks\Blackbaud-CRM-BBDW\Blackbaud.OpenFx.BBDW.Query.Catalog\bin\Debug\Blackbaud.AppFx.Server.dll.</ExceptionMessage>
+  </Exception>
+ </Exceptions>
 </FxCopReport>
